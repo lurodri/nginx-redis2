@@ -1,0 +1,14 @@
+services:
+    reverseproxy:
+        build: .
+        ports:
+            - 80:80
+        restart: always
+
+    redis:
+        depends_on:
+            - reverseproxy
+        ports:
+            - 6379:6379
+        image: redis
+        restart: always
