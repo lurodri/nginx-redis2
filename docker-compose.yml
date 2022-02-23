@@ -1,14 +1,23 @@
 services:
-    reverseproxy:
+    redis:
+        ports:
+            - 6379:6379
+        image: redis
+        restart: always
+
+    openresty:
+        depends_on:
+            - redis
         build: .
         ports:
             - 80:80
         restart: always
 
-    redis:
+    java:
         depends_on:
-            - reverseproxy
+            - redis
+            - openresty
         ports:
-            - 6379:6379
-        image: redis
+            - 8080:8080
+        build: java-app
         restart: always
