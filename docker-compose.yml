@@ -4,20 +4,19 @@ services:
             - 6379:6379
         image: redis
         restart: always
+    java:
+        depends_on:
+            - redis
+        ports:
+            - 8080:8080
+        build: java-app
+        restart: always
 
     openresty:
         depends_on:
             - redis
+            - java
         build: .
         ports:
             - 80:80
-        restart: always
-
-    java:
-        depends_on:
-            - redis
-            - openresty
-        ports:
-            - 8080:8080
-        build: java-app
         restart: always
