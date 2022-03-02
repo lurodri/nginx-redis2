@@ -18,3 +18,5 @@ FROM openresty/openresty:alpine
 # Copy configuration with load_module /usr/lib/nginx/modules/ngx_http_redis2_module.so
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY localhost.conf /etc/nginx/conf.d/default.conf
+RUN  mkdir -p /etc/nginx/lua-script/
+COPY lua-script/redis.lua /etc/nginx/lua-script/redis.lua
