@@ -1,4 +1,4 @@
-# nginx-redis2
+# Nginx Reverse Proxy with Redis Cache as distributed cache
 Pretty simple sample of nginx used as reverse proxy with cache with Redis for a backend app. All running on docker compose
 
 ## Architecture
