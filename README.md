@@ -18,5 +18,6 @@ Otherwise, if the data is still not cached, Nginx will pass the request as-is to
 ### b) Run docker compose running both containers
 `docker-compose up`
 
-
+## Test it locally
+`curl -v http://localhost/cached`
 
